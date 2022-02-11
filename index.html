@@ -122,10 +122,10 @@
           },
         })
       }
-      setInterval(() => {
+      setTimeout(() => {
         setTrainStartPosition()
-        
-        clearInterval()
+
+        setTimeout()
       }, 5000);
   
       function callTrain({item, pathLength, point}) {
