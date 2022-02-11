@@ -101,7 +101,6 @@
 
       // train initial position
       function setTrainStartPosition() {
-        trainDone = false
 
         gsap.to(trainJs, {
           motionPath: {
@@ -123,7 +122,9 @@
           },
         })
       }
-      setTrainStartPosition()
+      setInterval(() => {
+        setTrainStartPosition()
+      }, 5000);
   
       function callTrain({item, pathLength, point}) {
 
