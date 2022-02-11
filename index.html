@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap-reboot.css" />
+  <link rel="stylesheet" href="./css/style.css">
+  <title>РЖД Добрые Дела</title>
+
+  <!-- START GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
+  <!-- END GSAP -->
+</head>
+<body>
+  <div class="rjd-trains">
+    <div class="container">
+      <div class="rjd-train">
+        <!-- img of the train -->
+        <img class="train_js" src="./img/train.svg" class="train_js" style="position: absolute; z-index: 5;">
+        <div class="rjd-train__img">
+          <!-- train map -->
+          <img src="./img/map.jpg" alt="">
+        </div>
+        <!-- svg map -->
+        <svg id="map" width="1200" height="650" viewBox="0 0 1200 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="map-path-1" d="M97.5,538.5c16.8-8.7,37.2-16.1,61-18c6.6-0.5,9.2-0.3,84,8c29.4,3.3,51.6,5.7,66-2c2-1.1,7.1-4,14-4
+          	c9,0,11.8,5.1,22,9c14,5.4,27.2,2.9,32,2c3.2-0.6,12.3-2.7,22-9c8-5.2,7.6-7.5,19-18c9.1-8.4,16.6-13.5,26-20c9.7-6.7,14.6-10,19-11
+          	c9.8-2.2,18.8,0.5,27,3c4.2,1.3,8.5,3.2,17,7c7.2,3.2,13.6,6.3,23,11c23.6,11.8,22,11.8,26,13c8.9,2.7,16.6,2.5,32,2
+          	c13.1-0.4,12.9-1.9,36-5c0.9-0.1,5.5-0.7,11-3c4.1-1.7,6.6-2.7,8-5c2.4-3.9-0.9-8.5-3-16c-3.9-13.9-1.6-14.7-5-26
+          	c-2.4-8-5.3-13.4-10-22c-3.2-5.8-7.7-13.5-14-22c-4.8-6.4-9.6-11.7-19-22c-11.8-12.9-17.7-19.3-22-23c-9.6-8.2-11.2-7.2-29-20
+          	c-13.2-9.5-20-14.4-25-21c-6.5-8.5-9.2-18.7-12-28c-2-6.6-0.9-10.6-4-16c-4.1-7-10.1-9.4-14-12c-15.5-10-18.1-33.5-20-51
+          	c-1.3-11.9-3.1-28.2,5-46c6-13.2,14.7-21.2,20-26c12.1-11,17.2-9.8,46-26c20.7-11.6,21-13.8,31-17c3.9-1.2,12.8-3.7,40-3
+          	c29.4,0.8,44.1,1.2,63,7c20.2,6.2,23,11.7,43,15c15.8,2.6,28.3,1.5,33,1c15.6-1.7,26.5-6.1,41-12c12.2-5,21.4-10,40-20
+          	c24.7-13.3,24.4-14.5,35-19c12-5.1,25.6-10.9,44-12c6.6-0.4,30.1-1.1,54,11c15.6,7.9,15,12.9,31,19c3.7,1.4,13.5,4.9,23,13
+          	c3.6,3.1,5.8,5.7,7,9c2.5,6.7-0.7,11.2-1,17c-0.4,9.6,7.5,17,22,30c17.2,15.4,20,13.1,30,24c6.8,7.4,15.7,17.1,18,32
+          	c2.8,18.3-6.4,32.8-9,37c-12,19-31.9,25.1-45,29c-12.5,3.8-31.6,4.2-70,5c-13.2,0.3-30.7,0.5-51,9c-6.8,2.8-18.1,7.7-18,14
+          	c0,2.2,1.5,6.5,24,16c20.4,8.6,35,12,35,12c42.4,9.8,44.9,6,67,13c15.6,5,31.9,10.4,47,25c7.2,7,20.7,20.1,23,40
+          	c2.3,20.5-8.6,36.5-20,53c-12,17.4-24.5,27.3-38,38c-22.6,17.9-36.5,28.9-57,31c-10.5,1.1-11.4-1.3-36-2c-20.4-0.6-33.9,0.7-40,1
+          	c-43.7,2.1-70.1-28.6-129-44c-34.8-9.1-52.2-13.9-70-8c-18.6,6.2-32.9,20-50,14c-2.9-1-10.9-4.3-15-12c-4.9-9.1,0.5-15.1-1-27
+          	c-1.4-11.5-7.6-15.1-21-34c-13.6-19.2-10.2-19.7-20-33c-16.4-22.2-37.3-35.9-54-47c-21.8-14.4-28.4-14.7-33-25
+          	c-4.9-11-1.3-19.5-10-35c-2-3.6-7.8-13.7-14-13c-2.5,0.3-3.4,2.1-7,5c-5.8,4.7-10.2,5.5-16,8c-6.4,2.8-11.2,6.9-21,15
+          	c-13.4,11.2-13.7,14.2-22,21c-15.4,12.7-31.8,16.8-37,18c-21.6,5.2-39.3,0.9-47-1c-20.1-5-34.3-14.8-49-25
+          	c-19.4-13.4-23.4-20.5-40-26c-8.1-2.7-19-6.1-31-2c-14.4,5-21.8,17.9-23,20c-7,12.6-3.5,21.2-13,32c-2.8,3.1-7,7.9-11,7
+          	c-6.2-1.4-5-15-11-34c-4.2-13.3-10.1-22.9-22-42c-13.8-22.2-16.7-21.4-20-32c-1.4-4.6-7.4-25.8,3-45c3-5.6,9.7-11.4,23-23
+          	c14.6-12.7,21.8-19,31-24c14.4-7.8,17.9-5.3,37-14c16-7.3,19-11.4,30-17c11.8-5.9,30-12.1,57-11" />
+          <path class="map-path-2" d="M300.5,98.5c7.6,2.4,21.1,6.6,38,12c30.4,9.6,33.7,10.8,41,12c25.8,4.4,46.4,0.9,51,0c15-2.8,14.3-5.3,43-14
+          	c19.7-6,30.3-9.2,45-11c8.9-1.1,22.1-0.7,48,0c21.4,0.6,37.7,1.5,47,2c28.9,1.7,43.3,2.5,50,4c27.8,6.3,29.1,15.4,54,19
+          	c19.2,2.8,34.7-0.3,43-2c18.7-3.9,31.5-10.6,51-21c26.2-14,26-18,46-27c14.5-6.5,29.1-13.1,49-14c27.8-1.3,49.5,9.2,57,13
+          	c19,9.5,18.7,15.9,40,25c4.7,2,10.4,4.2,15,10c6.2,7.9,4.1,14.8,7,25c2.8,9.7,9.5,16.5,23,30c19.6,19.7,24,16.8,32,29
+          	c2.8,4.3,12.8,19.4,10,39c-2.8,19.6-16.5,31.2-21,35c-12.6,10.7-25.8,13.3-44,17c-17.7,3.5-32,3.7-50,4c-21.8,0.3-30.2-1.1-48,2
+          	c-2.6,0.5-24.9,4.6-31,16c-0.6,1.1-1.9,3.6-1,6c1.6,4.5,9.3,5.4,13,6c13.7,2.4,18.2,9.5,31,16c14.6,7.4,20.2,4,51,9
+          	c26.1,4.2,43.4,7.1,62,18c10.7,6.3,25.8,15.1,34,33c12.7,27.5-0.3,55.6-3,61c-8.2,16.7-21.7,27.6-26,31c-8.8,7-13,7.8-24,17
+          	c-12,10-14.5,15.3-21,21c-9.3,8.1-21.4,12.3-51,14c-36.5,2.1-62.1,3.6-96-6c-30.2-8.5-28.4-15-84-35c-32.5-11.7-42.3-12.8-50-13
+          	c-6-0.2-15.7,0.1-65,12c-32.7,7.9-28.7,7.9-40,10c-30.3,5.7-51.9,9.7-75,2c-21.2-7.1-18.5-15.7-48-27c-15.7-6-31.8-11.9-48-6
+          	c-5.5,2-12.4,8-26,20c-20.9,18.4-20.2,20.7-30,27c-8.6,5.5-23.2,15-42,13c-17.6-1.8-29.5-12.8-34-17c-11.9-11-9.6-16.8-22-33
+          	c-11.1-14.5-22.7-22.8-37-33c-26.1-18.6-27.6-12.2-40-24c-19.9-18.8-10.6-30-34-58c-10.6-12.8-19.5-18.8-18-28c1.3-8,8.6-8.6,16-22
+          	c6.7-12.2,3.3-16.7,9-24c10.4-13.5,32.6-12.2,35-12c16.3,1.2,22.2,9.7,47,26c20.5,13.5,36.1,23.7,57,29c10.4,2.6,36.2,9.2,61-2
+          	c16.9-7.6,12-13.8,40-34c0,0,0,0,0,0c11,0,25.7-31.7,48-29c11.4,1.4,10.3,7.7,21,9c16.9,2.1,21.7-13.3,44-19
+          	c16.5-4.2,37.4-1.7,50,10c7.4,6.9,5.2,10.8,13,22c14.3,20.5,36.2,28.2,44,31c5.2,1.8,28.6,9.6,57,3c21.5-5,21-12.5,47-22
+          	c14.4-5.3,36.9-13.5,64-10c28,3.6,39.1,17,61,12c3.7-0.8,10.6-2.9,18,0c8.6,3.4,9.6,10.2,16,17c5.7,6.1,11,7.3,55,16
+          	c10,2,20,4.1,30,6c27.7,5.4,33.7,6.1,43,11c10.3,5.5,17,12,23,18c9.4,9.3,16.2,16,20,27c5.2,15.1,1.5,28.9,0,34
+          	c-4.2,14.5-12.8,23.3-30,41c-10.2,10.5-18.8,17.6-29,26c-14,11.5-20.9,17.3-28,21c-9.5,5-19.8,7.9-50,9c-36.5,1.4-54.7,2.1-79-3
+          	c-21.5-4.5-37-11-63-22c-37.2-15.7-39.3-21.3-60-25c-17.4-3.1-36.8-6.6-58,1c-3.9,1.4-18.9,7.2-39,11c-7.5,1.4-15.8,2.6-18-1
+          	c-1.7-2.9,1.1-7.4,2-9c10.1-18.5-20.5-62.2-26-70c-15.3-21.9-32.3-46.1-63-64c-15.6-9.1-23.6-10.1-31-21c-6.8-10.1-14.9-31.6-20-45
+          	c-1.5-4-3.4-9-8-11c-6.4-2.7-14,1.9-22,7c-15.1,9.7-22.6,14.6-34,24c-15.2,12.6-28.7,23.8-46,30c-28.6,10.3-55.4,2.4-60,1
+          	c-19-5.9-33.6-17.3-51-31c-16.9-13.3-19.4-18.5-31-22c-14.8-4.5-35.1-3.4-45,8c-1.8,2.1-0.1,0.9-7,14c-10.2,19.4-12.4,19.1-15,28
+          	c-1.5,5-1.7,8.2-4,9c-4.5,1.5-11.3-8-12-9c-6.4-9-5.7-16.3-8-26c-1.4-5.7-2.1-5.2-20-36c-11.8-20.2-13.9-24.7-16-30
+          	c-3.8-9.6-6.6-16.9-7-27c-0.2-5.6-0.7-19,7-31c4.6-7.2,7.7-7,31-24c15-10.9,13-10.5,20-15c11.4-7.3,19-10,38-18
+          	c32.1-13.5,28.1-13.3,39-17c11.8-4.1,29.3-8.7,52-10" />
+        </svg>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function (event) {
+      gsap.registerPlugin(MotionPathPlugin);
+
+      const trainData = {
+        currentStep: 1
+      }
+      const trainJs = '.train_js'
+      // you can find out the position of x or y property
+      const trainJsProperties = document.querySelector('.train_js')._gsap;
+      
+      const mapAllPaths = document.querySelectorAll('#map path')
+  
+      const mapCurrentPath = document.querySelector('.map-path-1')
+      const mapCurrentPath2 = document.querySelector('.map-path-2')
+
+      const mapCurrentPathLength = mapCurrentPath.getTotalLength()
+      const mapCurrentPathLength2 = mapCurrentPath2.getTotalLength()
+
+      const trainSpeed = 100;
+
+      // train initial position
+      function setTrainStartPosition() {
+        trainDone = false
+
+        gsap.to(trainJs, {
+          motionPath: {
+            path: mapCurrentPath,
+            align: mapCurrentPath,
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0,
+            end: 1,
+          },
+          ease: 'none',
+          duration: mapCurrentPathLength / trainSpeed,
+          onComplete() {
+            console.log('completed')
+            callTrain({
+              item: mapCurrentPath2,
+              pathLength: mapCurrentPathLength2
+            })
+          },
+        })
+      }
+      setTrainStartPosition()
+  
+      function callTrain({item, pathLength, point}) {
+
+        gsap.to(trainJs, {
+          motionPath: {
+            path: item,
+            align: item,
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0,
+            end: 1,
+          },
+          duration: pathLength / trainSpeed,
+          ease: "none",
+          yoyo: true,
+          onComplete() {
+            callTrain({
+              item: mapCurrentPath2,
+              pathLength: mapCurrentPathLength2
+            })
+          }
+        })
+      }
+
+
+
+      function callNextStep(currentStepNode, currentStepLength) {
+        // trainData.currentStep++
+
+        // const localCoordinte = {x: 0, y: 0}
+
+        // let pointOne = document.querySelector(`.map-path-${trainData.currentStep}`)
+
+        // if (trainData.currentStep === 9) {
+        //   trainData.currentStep = 2
+        // }
+        // let pointTwo = document.querySelector(`.map-path-${trainData.currentStep}`)
+
+        // let rawPath = MotionPathPlugin.getRawPath(pointTwo)
+        // console.log('rawPath: ', rawPath);
+        
+        // let point = MotionPathPlugin.convertCoordinates(
+        //   pointOne,
+        //   pointTwo,
+        //   {x: 0, y: 0}
+        //   )
+
+        // let point2 = MotionPathPlugin.getRelativePosition(pointOne, pointTwo)
+
+        // let currentStepNode = document.querySelector(`.map-path-${trainData.currentStep}`)
+
+        // let currentStepLength = currentStepNode.getTotalLength()
+
+        callTrain({
+          item: currentStepNode,
+          pathLength: currentStepLength,
+        })
+      }
+
+      // callNextStep()
+      
+      function startTrainOnClick() {
+        mapAllPaths.forEach((item, i) => {
+          console.log(mapAllPaths)
+          item.addEventListener('click', (e) => {
+            console.log('clicked')
+            // get path length
+            let pathLength = item.getTotalLength()
+  
+            callTrain({
+              item: item,
+              pathLenght: pathLength
+            })
+          })
+        }) 
+      }
+
+    });
+
+    
+  </script>
+</body>
+</html> 
