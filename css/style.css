@@ -5,13 +5,7 @@
 img {
   max-width: 100%;
 }
-svg {
-  border: 1px solid #777;
-}
-svg path {
-  stroke-width: 10px;
-  /* stroke: rgb(136, 206, 2); */
-}
+
 #map {
   position: absolute;
   top: 0;
@@ -31,3 +25,143 @@ svg path {
   height: 20px;
   background-color: orange;
 }
+.svg-position {
+  position: absolute;
+  z-index: 1;
+}
+.svg-position svg {
+  position: absolute;
+  z-index: 0;
+}
+.rjd-train {
+  position: relative;
+}
+.train-car svg {
+  position: absolute;
+}
+/* START animations */
+@keyframes train-car__body {
+  0% {
+    transform: translateX(70px);
+  }
+  30% {
+    transform: translateX(0px);
+  }
+  65% {
+    transform: translateX(0px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-70px);
+  }
+}
+@keyframes train-car__snow {
+  0% {
+    transform: translateX(70px);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  65% {
+    transform: translateX(0px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-70px);
+  }
+}
+
+.train-car__body {
+  z-index: 0;
+  right: 78px;
+  bottom: 87px;
+}
+.train-car__snow {
+  z-index: 1;
+  right: 124px;
+  bottom: 142px;
+}
+.train-car {
+  position: absolute;
+  z-index: 1;
+  width: 0px;
+  height: 0px;
+  right: 0;
+}
+.train-car:hover
+.train-car__body {
+  animation-name: train-car__body;
+  animation-duration: 2.67s;
+  animation-iteration-count: infinite;
+}
+.train-car:hover .train-car__snow {
+  animation-name: train-car__snow;
+  animation-duration: 2.67s;
+  animation-iteration-count: infinite;
+}
+/* atom */
+@keyframes atom-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes atom-left {
+  0% {
+      transform: rotate(0deg);
+    }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes atom-top-bottom {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.train-atom {
+  position: absolute;
+  z-index: 10;
+  width: 0px;
+  height: 0px;
+}
+.orbit-1 {
+  bottom: 137px;
+  left: 72px;
+}
+.orbit-2 {
+  bottom: 137px;
+  left: 72px;
+}
+.atom-vertical {
+  left: 90px;
+  bottom: 122px;
+}
+.circle {
+  bottom: 151px;
+  left: 96px;
+}
+.train-atom:hover .orbit-1,
+.train-atom:hover .atom-vertical {
+  animation: atom-right 3.6s linear infinite;
+}
+.train-atom:hover .orbit-2 {
+  animation: atom-left 3.6s linear infinite;
+}
+.train-atom:hover {
+  animation: atom-top-bottom 3.6s linear infinite;
+}
+
+/* END animations */
