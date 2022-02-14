@@ -5,7 +5,7 @@
     transform: rotate(360deg)
 @keyframes train-atom-left 
   0%
-    transform: rotate(0deg)
+    transform: rotate(0deg)    
   100% 
     transform: rotate(-360deg)
 @keyframes train-atom-top-bottom 
@@ -21,6 +21,15 @@
   z-index: 10
   width: 0px
   height: 0px
+  &__body
+    &_animatejs
+      animation: train-atom-top-bottom 3.6s linear infinite
+  &__phone
+    width: 69px
+    top: -153px
+    bottom: 0
+    position: absolute
+    left: 56px
   &_animatejs
     animation: train-atom-top-bottom 3.6s linear infinite
   &__orbit-1

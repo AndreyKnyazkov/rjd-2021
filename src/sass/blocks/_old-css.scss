@@ -36,7 +36,7 @@ body {
 
 .svg-position {
   position: absolute;
-  z-index: 1;
+  z-index: 6;
 }
 
 .svg-position svg {
@@ -44,9 +44,23 @@ body {
   z-index: 0;
 }
 
+.hover-target {
+  z-index: 110;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+
+}
+
 .rjd-train {
   position: relative;
   margin-top: 10vh;
+}
+
+.rjd-train__icons {
+  position: absolute;
+  top: 0;
+  z-index: 100;
 }
 
 .train-car svg {

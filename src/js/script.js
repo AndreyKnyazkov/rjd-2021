@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
       })
     }
+    setTrainStartPosition()
     // setTimeout(() => {
     //   setTrainStartPosition()
 
@@ -138,33 +139,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   performAnimation({
-    hoverTarget: document.querySelector('.train-atom'),
+    hoverTarget: document.querySelector('.rjd-train__target-atom'),
     animationLength: 3600,
-    animateAlso: ['train-atom']
+    animateAlso: ['train-atom__vertical', 'train-atom__circle', 'train-atom__orbit-1', 'train-atom__orbit-2', 'train-atom__body']
   })
 
   performAnimation({
-    hoverTarget: document.querySelector('.train-car'),
+    hoverTarget: document.querySelector('.rjd-train__target-train-car'),
     animationLength: 2600,
-    animateAlso: []
+    animateAlso: ['train-car__snow', 'train-car__body']
   })
 
   performAnimation({
-    hoverTarget: document.querySelector('.raleway-station__img'),
+    hoverTarget: document.querySelector('.rjd-train__target-raleway-station'),
     animationLength: 4000,
     animateAlso: ['raleway-station__train']
   })
 
   performAnimation({
-    hoverTarget: document.querySelector('.capsule-car'),
+    hoverTarget: document.querySelector('.rjd-train__target-capsule-car'),
     animationLength: 5000,
     animateAlso: ['capsule-car__curtain__1', 'capsule-car__curtain__2', 'capsule-car__curtain__3']
   })
 
   performAnimation({
-    hoverTarget: document.querySelector('.train-box'),
+    hoverTarget: document.querySelector('.rjd-train__target-train-box'),
     animationLength: 3600,
-    animateAlso: []
+    animateAlso: ['train-box__purple-cream', 'train-box__eskimo', 'train-box__fruit-ice-1', 'train-box__fruit-ice-2', 'train-box__blue-cream']
   })
 
 });
