@@ -1,0 +1,61 @@
+.container {
+  width: 1200px;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: url(../img/background.svg);
+  background-size: cover;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  /* border: 1px solid #777; */
+}
+
+#map path {
+  cursor: pointer;
+  /* stroke-width: 10px; */
+  /* stroke: rgb(136, 206, 2); */
+  fill: transparent;
+}
+
+/* that's a box stuff for testing */
+.selector {
+  position: absolute;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+}
+
+.svg-position {
+  position: absolute;
+  z-index: 1;
+}
+
+.svg-position svg {
+  position: absolute;
+  z-index: 0;
+}
+
+.rjd-train {
+  position: relative;
+  margin-top: 10vh;
+}
+
+.train-car svg {
+  position: absolute;
+}
+
+/* START animations */
+
+
+/* atom */
+
+/* END animations */

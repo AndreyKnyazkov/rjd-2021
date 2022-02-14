@@ -1,0 +1,33 @@
+@keyframes railway-station-train
+  0%
+    width: 22px
+    height: 26px
+    margin: 0
+  50% 
+    width: 22px
+    height: 26px
+    margin: 0
+  70%
+    width: 112px
+    height: 87px
+    margin-left: -45px
+    margin-top: -33px
+  77%
+    width: 112px
+    height: 74px
+    margin-left: -45px
+    margin-top: -24px
+  100%
+    width: 112px
+    height: 74px
+    margin-left: -45px
+    margin-top: -24px
+.raleway-station
+  top: 10px
+  right: 104px
+  &__train
+    transform: translate(52px, -67px)
+    display: none
+    &_animatejs
+      display: block
+      animation: railway-station-train 4s linear infinite

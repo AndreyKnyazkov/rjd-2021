@@ -5,11 +5,14 @@
 img {
   max-width: 100%;
 }
-
+body {
+  background: url(../img/background.svg);
+  background-size: cover;
+}
 #map {
   position: absolute;
   top: 0;
-  border: 1px solid #777;
+  /* border: 1px solid #777; */
 }
 #map path {
   cursor: pointer;
@@ -35,6 +38,7 @@ img {
 }
 .rjd-train {
   position: relative;
+  margin-top: 10vh;
 }
 .train-car svg {
   position: absolute;

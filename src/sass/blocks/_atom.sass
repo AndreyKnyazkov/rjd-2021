@@ -1,0 +1,51 @@
+@keyframes train-atom-right
+  0% 
+    transform: rotate(0deg)
+  100% 
+    transform: rotate(360deg)
+@keyframes train-atom-left 
+  0%
+    transform: rotate(0deg)
+  100% 
+    transform: rotate(-360deg)
+@keyframes train-atom-top-bottom 
+  0% 
+    transform: translateY(0px)
+  50% 
+    transform: translateY(-8px)
+  100% 
+    transform: translateY(0px)
+
+.train-atom
+  position: absolute;
+  z-index: 10
+  width: 0px
+  height: 0px
+  &_animatejs
+    animation: train-atom-top-bottom 3.6s linear infinite
+  &__orbit-1
+    bottom: 137px
+    left: 72px
+    &_animatejs
+      animation: train-atom-right 3.6s linear infinite
+  &__orbit-2 
+    bottom: 137px
+    left: 72px
+    &_animatejs
+      animation: train-atom-left 3.6s linear infinite
+  &__vertical 
+    left: 90px
+    bottom: 122px
+    &_animatejs
+      animation: train-atom-right 3.6s linear infinite
+  &__circle 
+    bottom: 151px
+    left: 96px
+  // &:hover
+  //   animation: train-atom-top-bottom 3.6s linear infinite
+  //   & .train-atom__orbit-1
+  //     animation: train-atom-right 3.6s linear infinite
+  //   & .train-atom__vertical
+  //     animation: train-atom-right 3.6s linear infinite
+  //   & .train-atom__orbit-2
+  //     animation: train-atom-left 3.6s linear infinite

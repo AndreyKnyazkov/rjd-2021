@@ -1,0 +1,75 @@
+@keyframes curtain-1
+  0%
+    transform: translateX(36px)
+  15%
+    transform: translateX(56px)
+  60%
+    transform: translateX(56px)
+  85%
+    transform: translateX(56px)
+  100%
+    transform: translateX(36px)
+  100%
+    transform: translateX(36px)
+@keyframes curtain-2
+  0%
+    transform: translateX(56px)
+  15%
+    transform: translateX(56px)
+  30%
+    transform: translateX(76px)
+  55%
+    transform: translateX(76px)
+  70%
+    transform: translateX(76px)
+  85%
+    transform: translateX(56px)
+  100%
+    transform: translateX(56px)
+@keyframes curtain-3
+  0%
+    transform: translateX(75px)
+  30%
+    transform: translateX(75px)
+  45%
+    transform: translateX(95px)
+  55%
+    transform: translateX(95px)
+  70%
+    transform: translateX(75px)
+  100%
+    transform: translateX(75px)
+.capsule-car
+  bottom: 0
+  bottom: 79px
+  left: 232px
+  &__curtains
+    display: flex
+    z-index: 1
+  &__image
+    z-index: 2
+  &__partitions
+    position: absolute
+    top: 16px
+    right: 37px
+    z-index: 2
+  &__curtain
+    &s
+      position: absolute
+      top: -0px
+    &-top
+      margin-top: -2.3px
+    &-bottom
+      margin-top: -4px
+    &__1
+      transform: translateX(36px)
+      &_animatejs
+        animation: curtain-1 5s linear infinite
+    &__2
+      transform: translateX(55px)
+      &_animatejs
+        animation: curtain-2 5s linear infinite
+    &__3
+      transform: translateX(75px)
+      &_animatejs
+        animation: curtain-3 5s linear infinite

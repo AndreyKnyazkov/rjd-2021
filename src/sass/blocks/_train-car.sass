@@ -1,0 +1,46 @@
+@keyframes train-car__body 
+  0% 
+    transform: translateX(70px)
+  30% 
+    transform: translateX(0px)
+  65% 
+    transform: translateX(0px)
+  80% 
+    transform: translateX(10px)
+  100% 
+    transform: translateX(-70px)
+
+@keyframes train-car__snow 
+  0%
+    transform: translateX(70px)
+  25% 
+    transform: translateX(10px)
+  65%
+    transform: translateX(0px)
+  80% 
+    transform: translateX(10px)
+  100% 
+    transform: translateX(-70px)
+.train-car
+  position: absolute
+  z-index: 1
+  width: 0px
+  height: 0px
+  right: 0
+  &__body
+    z-index: 0
+    right: 78px
+    bottom: 87px
+    &_animatejs
+      animation-name: train-car__body
+      animation-duration: 2.6s
+      animation-iteration-count: infinite
+  &__snow 
+    z-index: 1
+    right: 124px
+    bottom: 142px
+    &_animatejs
+      animation-name: train-car__snow
+      animation-duration: 2.6s
+      animation-iteration-count: infinite
+  
