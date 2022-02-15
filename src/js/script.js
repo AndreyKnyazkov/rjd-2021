@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // state for animation
     let animationState = false
 
-    function setRemoveAnimation({selector, animateAlso = []} = {}) {
+    function setRemoveAnimation({selector, animateAlso} = {}) {
       // set interval for processing animation
       animationProcessing = setInterval(() => {
         // if animation is ended then we exit
