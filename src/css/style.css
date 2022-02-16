@@ -193,6 +193,13 @@ body {
   right: 0;
 }
 
+.train-car__gif {
+  position: absolute;
+  bottom: 83px;
+  right: 50px;
+  width: 291px;
+}
+
 .train-car__body {
   z-index: 0;
   right: 78px;

@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
       })
     }
-    setTrainStartPosition()
+    // setTrainStartPosition()
     // setTimeout(() => {
     //   setTrainStartPosition()
 
@@ -67,7 +67,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   trainInit()
 
-  function performAnimation({hoverTarget, animationLength, animateAlso} = {}) {
+  function performAnimation({
+    hoverTarget,
+    animationType,
+    replaceTo,
+    replaceInside,
+    animationLength,
+    animateAlso
+  } = {}) {
     // recognize if animation is still active
     if (hoverTarget.dataset.active === "true") {
       return
@@ -79,16 +86,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let animationState = false
 
     function setRemoveAnimation({selector, animateAlso} = {}) {
+      // put here default animation node if we use gif animation
+      let gifAnimationDefaultNode = false
+
       // set interval for processing animation
       animationProcessing = setInterval(() => {
         // if animation is ended then we exit
         if (animationState === false) {
           canBeActive = true
-          removeAnimation()
+          
+          removeAnimation({
+            replaceSvgAfterGif: gifAnimationDefaultNode ? gifAnimationDefaultNode : false
+          })
+          console.log('animation finished')
           animationProcessing = clearInterval(animationProcessing)
         }
-        
       }, animationLength)
+
+      if (animationType === 'gif') {
+        
+        const replaceInsideNode = document.querySelector(replaceInside)
+        gifAnimationDefaultNode = replaceInsideNode.innerHTML
+
+        document.querySelector(replaceInside).innerHTML = replaceTo
+
+        return
+      }
 
       Array.from(selector.children).forEach((item) => {
         item.classList.add(`${item.classList[0]}_animatejs`)
@@ -99,8 +122,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector(`.${item}`).classList.add(`${item}_animatejs`)
       })
       
-      function removeAnimation() {
+      function removeAnimation({replaceSvgAfterGif} = {}) {
         hoverTarget.setAttribute("data-active", "false")
+
+        if (animationType === 'gif') {
+          document.querySelector(replaceInside).innerHTML = replaceSvgAfterGif
+          return
+        }
 
         Array.from(selector.children).forEach((item) => {
           item.classList.remove(`${item.classList[0]}_animatejs`)
@@ -147,6 +175,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   performAnimation({
     hoverTarget: document.querySelector('.rjd-train__target-train-car'),
     animationLength: 2600,
+    animationType: 'gif',
+    replaceInside: '.train-car',
+    replaceTo: '<div class="train-car__gif"><img src="./img/gif/милионный-контейнер-2.gif"></div>',
     animateAlso: ['train-car__snow', 'train-car__body']
   })
 
